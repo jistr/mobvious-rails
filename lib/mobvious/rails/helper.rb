@@ -12,8 +12,9 @@ module Rails
 
       if wanted_device_type.to_sym == device_type
         yield
+      else
+        nil
       end
-      nil
     end
 
     def device_type
