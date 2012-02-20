@@ -20,6 +20,17 @@ module Rails
     def device_type
       request.env['mobvious.device_type']
     end
+
+    def mobvious_javascript
+      script = <<-END
+        <script type="text/javascript">
+        if (window.Mobvious === null) {
+          window.Mobvious = {};
+        }
+        window.Mobvious.device_type = '#{device_type.to_s}';
+        </script>
+      END
+    end
   end
 end
 end
