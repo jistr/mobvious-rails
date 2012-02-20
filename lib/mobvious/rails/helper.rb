@@ -1,20 +1,23 @@
 module Mobvious
 module Rails
-  module ViewHelper
-    def device(device_type)
+  module Helper
+    def device(wanted_device_type)
       unless block_given?
         raise ArgumentError, "Device helper takes a block of content to render for given device."
       end
 
-      current_device_type = request.env['mobvious.device_type']
-      unless current_device_type
+      unless device_type
         raise "Mobvious device type not set. Did you add the Mobvious rack middleware?"
       end
 
-      if device_type.to_sym == current_device_type
+      if wanted_device_type.to_sym == device_type
         yield
       end
       nil
+    end
+
+    def device_type
+      request.env['mobvious.device_type']
     end
   end
 end

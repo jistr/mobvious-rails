@@ -1,7 +1,6 @@
 require "mobvious/rails/version"
 
-require "mobvious/rails/case_device"
-require "mobvious/rails/view_helper"
+require "mobvious/rails/helper"
 
 module Mobvious
   module Rails

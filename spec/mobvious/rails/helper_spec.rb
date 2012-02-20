@@ -1,10 +1,10 @@
 require 'spec_helper'
-require 'mobvious/rails/view_helper'
+require 'mobvious/rails/helper'
 
 module Mobvious
 module Rails
-class ViewHelperSpec < MiniTest::Spec
-  describe ViewHelper do
+class HelperSpec < MiniTest::Spec
+  describe Helper do
     before do
       @helper = Object.new
       @request = mock 'request'
@@ -13,7 +13,7 @@ class ViewHelperSpec < MiniTest::Spec
       @request.stubs(:env).returns(@env)
 
       mock_request = @request
-      @helper.extend ViewHelper
+      @helper.extend Helper
       @helper.define_singleton_method(:request) do
         mock_request
       end
