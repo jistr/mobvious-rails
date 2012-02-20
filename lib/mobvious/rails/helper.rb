@@ -1,7 +1,7 @@
 module Mobvious
 module Rails
   module Helper
-    def device(wanted_device_type)
+    def for_device_type(wanted_device_type)
       unless block_given?
         raise ArgumentError, "Device helper takes a block of content to render for given device."
       end

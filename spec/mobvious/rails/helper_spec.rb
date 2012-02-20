@@ -24,14 +24,14 @@ class HelperSpec < MiniTest::Spec
       mobile_block_executed = false
       desktop_block_executed = false
 
-      mobile_retval = @helper.device :mobile do
+      mobile_retval = @helper.for_device_type :mobile do
         mobile_block_executed = true
         :mobile_retval
       end
       mobile_block_executed.must_equal true
       mobile_retval.must_equal :mobile_retval
 
-      desktop_retval = @helper.device :desktop do
+      desktop_retval = @helper.for_device_type :desktop do
         desktop_block_executed = true
         :desktop_retval
       end
