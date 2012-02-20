@@ -24,7 +24,7 @@ module Rails
     def mobvious_javascript
       script = <<-END
         <script type="text/javascript">
-        if (window.Mobvious === null) {
+        if (window.Mobvious === undefined) {
           window.Mobvious = {};
         }
         window.Mobvious.device_type = '#{device_type.to_s}';
