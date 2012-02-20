@@ -22,7 +22,7 @@ module Rails
     end
 
     def mobvious_javascript
-      script = <<-END
+      <<-END.html_safe
         <script type="text/javascript">
         if (window.Mobvious === undefined) {
           window.Mobvious = {};

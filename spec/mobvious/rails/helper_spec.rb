@@ -46,6 +46,7 @@ class HelperSpec < MiniTest::Spec
     it "generates javascript tag with device type" do
       device_type_assignment = /window.Mobvious.device_type = 'mobile';/
       @helper.mobvious_javascript.must_match device_type_assignment
+      @helper.mobvious_javascript.must_be :'html_safe?'
     end
   end
 end
