@@ -6,13 +6,14 @@ module Rails
 class HelperSpec < MiniTest::Spec
   describe Helper do
     before do
-      @helper = Object.new
-      @request = mock 'request'
       @env = mock 'env'
       @env.stubs('[]').with('mobvious.device_type').returns(:mobile)
-      @request.stubs(:env).returns(@env)
 
+      @request = mock 'request'
+      @request.stubs(:env).returns(@env)
       mock_request = @request
+
+      @helper = Object.new
       @helper.extend Helper
       @helper.define_singleton_method(:request) do
         mock_request
