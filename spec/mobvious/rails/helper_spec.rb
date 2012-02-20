@@ -33,6 +33,10 @@ class HelperSpec < MiniTest::Spec
       mobile_block_executed.must_equal true
       desktop_block_executed.must_equal false
     end
+
+    it "returns current device type" do
+      @helper.device_type.must_equal :mobile
+    end
   end
 end
 end
