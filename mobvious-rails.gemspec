@@ -28,9 +28,14 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'mocha'
 
+  # CoffeeScript compilation and testing
+  s.add_development_dependency 'therubyracer'
+  s.add_development_dependency 'jasmine'
+
   # Running tests during development
   s.add_development_dependency 'guard'
   s.add_development_dependency 'guard-minitest'
+  s.add_development_dependency 'guard-coffeescript'
   # Linux Guard watching
   s.add_development_dependency 'rb-inotify'
   # Linux Guard notifications

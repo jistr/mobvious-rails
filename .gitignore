@@ -2,4 +2,5 @@
 /.yardoc
 /doc
 /Gemfile.lock
+/tmp
 /vendor/ruby
