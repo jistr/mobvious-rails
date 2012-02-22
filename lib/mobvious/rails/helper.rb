@@ -16,7 +16,7 @@ module Rails
     # @yield a block to execute if the specified device type matches device type of the
     #   current request
     # @return value that the yielded block returns, or nil if it didn't get executed
-    def for_device_type(wanted_device_type)
+    def for_device_type(*wanted_device_types)
       unless block_given?
         raise ArgumentError, "Device helper takes a block of content to render for given device."
       end
@@ -25,7 +25,7 @@ module Rails
         raise "Mobvious device type not set. Did you add the Mobvious rack middleware?"
       end
 
-      if wanted_device_type.to_sym == device_type
+      if wanted_device_types.include? device_type
         yield
       else
         nil

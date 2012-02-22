@@ -23,6 +23,7 @@ class HelperSpec < MiniTest::Spec
     it "runs the provided block only for corresponding device type" do
       mobile_block_executed = false
       desktop_block_executed = false
+      multiple_block_executed = false
 
       mobile_retval = @helper.for_device_type :mobile do
         mobile_block_executed = true
@@ -37,6 +38,20 @@ class HelperSpec < MiniTest::Spec
       end
       desktop_block_executed.must_equal false
       desktop_retval.must_equal nil
+
+      multiple_retval = @helper.for_device_type :desktop, :tablet do
+        multiple_block_executed = true
+        :multiple_retval
+      end
+      multiple_block_executed.must_equal false
+      multiple_retval.must_equal nil
+
+      multiple_retval = @helper.for_device_type :desktop, :mobile do
+        multiple_block_executed = true
+        :multiple_retval
+      end
+      multiple_block_executed.must_equal true
+      multiple_retval.must_equal :multiple_retval
     end
 
     it "returns current device type" do
