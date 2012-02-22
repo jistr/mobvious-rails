@@ -21,14 +21,14 @@ describe 'Mobvious', ->
       expect(desktop_block_executed).toEqual false
       expect(desktop_retval).toEqual null
 
-      #      multiple_retval = @helper.for_device_type 'desktop', 'tablet', ->
-      #        multiple_block_executed = true
-      #        'multiple_retval'
-      #      expect(multiple_block_executed).toEqual false
-      #      expect(multiple_retval).toEqual null
-      #
-      #      multiple_retval = @helper.for_device_type 'desktop', 'mobile', ->
-      #        multiple_block_executed = true
-      #        'multiple_retval'
-      #      expect(multiple_block_executed).toEqual true
-      #      expect(multiple_retval).toEqual 'multiple_retval'
+      multiple_retval = Mobvious.for_device_type 'desktop', 'tablet', ->
+        multiple_block_executed = true
+        'multiple_retval'
+      expect(multiple_block_executed).toEqual false
+      expect(multiple_retval).toEqual null
+
+      multiple_retval = Mobvious.for_device_type 'desktop', 'mobile', ->
+        multiple_block_executed = true
+        'multiple_retval'
+      expect(multiple_block_executed).toEqual true
+      expect(multiple_retval).toEqual 'multiple_retval'
