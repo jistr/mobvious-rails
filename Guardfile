@@ -11,6 +11,7 @@ end
 guard 'coffeescript', output: 'tmp/spec-javascripts-compiled', hide_success: true do
   watch(/^spec\/javascripts\/(.*).coffee/)
 
+  # FIXME: tests run for each compiled file, should run only once
   callback(:run_all_end) do
     `rake jasmine:ci`
     if $? == 0
