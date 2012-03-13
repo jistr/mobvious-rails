@@ -21,7 +21,11 @@ Mobvious extensions for Rails views, controllers and CoffeeScript
 
 ## Get Started
 
-1.  **Include modules to your controllers and helpers.** No sneaky monkey patching in Mobvious!
+1.  **Include the gem in your Gemfile.**  
+    For Bundler >= 1.1: `gem 'mobvious-rails'`  
+    For Bundler < 1.1: `gem 'mobvious-rails', require: 'mobvious/rails'`
+
+2.  **Include modules to your controllers and helpers.** No sneaky monkey patching in Mobvious!
     
     Put this into your ApplicationController:
 
@@ -31,7 +35,7 @@ Mobvious extensions for Rails views, controllers and CoffeeScript
     
         include Mobvious::Rails::Helper
         
-2.  **Optionally, include also CoffeeScript helpers.**
+3.  **Optionally, include also CoffeeScript helpers.**
 
     Put this into your layouts/application.html.erb:
      
