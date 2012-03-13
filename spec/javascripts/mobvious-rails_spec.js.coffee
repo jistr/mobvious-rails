@@ -32,3 +32,12 @@ describe 'Mobvious', ->
         'multiple_retval'
       expect(multiple_block_executed).toEqual true
       expect(multiple_retval).toEqual 'multiple_retval'
+
+    it 'should only run once', ->
+      block_executed_times = 0
+
+      multiple_retval = Mobvious.for_device_type 'desktop', 'mobile', ->
+        block_executed_times += 1
+        'multiple_retval'
+      expect(block_executed_times).toEqual 1
+      expect(multiple_retval).toEqual 'multiple_retval'
