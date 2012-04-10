@@ -8,7 +8,7 @@ Mobvious extensions for Rails views, controllers and CoffeeScript
 
 *   **Execute code for given device types only.** Both in controllers and views.
 
-        <%= for_device_type :mobile do %>
+        <% for_device_type :mobile do %>
           <%= stylesheet_link_tag 'mobile_styles' %>
         <% end %>
 
